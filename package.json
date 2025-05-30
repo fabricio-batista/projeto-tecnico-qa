@@ -1,0 +1,27 @@
+{
+  "name": "projeto-tecnico-qa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabricio-batista/projeto-tecnico-qa.git"
+  },
+  "keywords": [],
+  "author": "Fabricio Batista",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fabricio-batista/projeto-tecnico-qa/issues"
+  },
+  "homepage": "https://github.com/fabricio-batista/projeto-tecnico-qa#readme",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
+    "@cypress/webpack-dev-server": "^4.1.0",
+    "cypress": "^14.4.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "webpack": "^5.99.9"
+  }
+}

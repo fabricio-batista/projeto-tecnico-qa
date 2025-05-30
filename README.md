@@ -1,2 +1,0 @@
-# projeto-tecnico-qa
-
