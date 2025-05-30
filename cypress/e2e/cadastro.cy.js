@@ -6,7 +6,7 @@ describe('Cadastro de novo usuário', () => {
   it('Deve cadastrar um novo usuário com sucesso', () => {
     // Dados fictícios e únicos
     const nome = 'Fabrício Teste';
-    const email = 'fabricio_teste_qa@teste.com'; //ajustar para gerar randomicamente e armazenar para o login
+    const email = `fabricio_${Date.now()}@teste.com`;
     const senha = '123456';
 
     // Acessar o site
@@ -21,5 +21,11 @@ describe('Cadastro de novo usuário', () => {
 
     // Verificar o resultado
     cadastroPage.validarMensagemDeSucesso();
+
+    cy.writeFile(`cypress/fixtures/usuario_dinamico.json`, {
+      email: email,
+      senha: senha
+
+    });
   });
 });

@@ -1,12 +1,20 @@
 import pytest
 import requests
-from utils.api_helpers import criar_usuario
+from utils.api_helpers import criar_usuario, gerar_email_unico
 
 BASE_URL = "https://serverest.dev"
 
 @pytest.fixture
 def usuario_valido():
-    return criar_usuario()
+    nome = "Fabrício Login"
+    email = gerar_email_unico()
+    senha = "senha123"
+
+    criar_usuario(nome, email, senha)
+    return {
+        "email": email,
+        "password": senha
+    }
 
 def test_login_usuario_valido(usuario_valido):
     payload = {

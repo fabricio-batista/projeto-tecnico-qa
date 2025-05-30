@@ -1,4 +1,3 @@
-# tests/api/test_criar_usuario.py
 from utils.api_helpers import criar_usuario, gerar_email_unico
 
 def test_criar_usuario_com_sucesso():

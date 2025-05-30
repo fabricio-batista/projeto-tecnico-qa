@@ -1,15 +1,19 @@
 import pytest
 import requests
-from utils.api_helpers import criar_usuario, logar_usuario
+from utils.api_helpers import criar_usuario, logar_usuario, gerar_email_unico
 
 BASE_URL = "https://serverest.dev"
 
 @pytest.fixture
 def usuario_autenticado():
-    usuario = criar_usuario()
-    token = logar_usuario(usuario["email"], usuario["password"])
+    nome = "Fabrício Carrinho"
+    email = gerar_email_unico()
+    senha = "teste123"
+
+    criar_usuario(nome, email, senha)
+    token = logar_usuario(email, senha)
     return {
-        "email": usuario["email"],
+        "email": email,
         "token": token
     }
 

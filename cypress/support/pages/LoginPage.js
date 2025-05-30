@@ -15,11 +15,18 @@ class LoginPage {
     cy.get('[data-testid="entrar"]').click();
   }
 
-  clicarAdicionarLista(produtoNome) {
-    cy.contains('.card', produtoNome) // localiza o card do produto específico
-        .within(() => {
-        cy.contains('button', 'Adicionar a lista').click(); // clica no botão dentro desse card
+  clicarAdicionarLista() {
+    cy.get('.card')
+    .its('length') // pega todos os .card dentro da lista 
+    .then((len) => {
+      if (len > 0) {
+        cy.get('.card').first().within(() => { // pega o primeiro .card da lista e dentro dele, busca o botao para clicar
+          cy.contains('Adicionar a lista').click();
         });
+      } else {
+        throw new Error('Nenhum produto disponível para adicionar à lista.');
+      }
+    });
   }
 
   validarMensagemDeSucesso() {

@@ -6,8 +6,7 @@ const listaProdutosPage = new ListaProdutosPage();
 
 describe('Adição de produto ao carrinho', () => {
   it('Deve adicionar um produto ao carrinho e verificar mensagem final', () => {
-    const email = 'fabricio_teste_qa@teste.com';
-    const senha = '123456';
+    cy.fixture('usuario_dinamico').then(({ email, senha }) => {
 
     // Acessar e logar
     loginPage.visitar();
@@ -26,5 +25,6 @@ describe('Adição de produto ao carrinho', () => {
 
     // Verificar mensagem de em construção
     listaProdutosPage.validarMensagemEmConstrucao();
+  });
   });
 });
